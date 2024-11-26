@@ -4,14 +4,15 @@ import 'katex/dist/katex.css'
 import PageTitle from '@/components/PageTitle'
 import { components } from '@/components/MDXComponents'
 import { MDXLayoutRenderer } from 'pliny/mdx-components'
-import { allCoreContent, coreContent, sortPosts } from 'pliny/utils/contentlayer'
+import { sortPosts, coreContent, allCoreContent } from 'pliny/utils/contentlayer'
+import { allBlogs, allAuthors } from 'contentlayer/generated'
 import type { Authors, Blog } from 'contentlayer/generated'
-import { allAuthors, allBlogs } from 'contentlayer/generated'
 import PostSimple from '@/layouts/PostSimple'
 import PostLayout from '@/layouts/PostLayout'
 import PostBanner from '@/layouts/PostBanner'
 import { Metadata } from 'next'
 import siteMetadata from '@/data/siteMetadata'
+import { notFound } from 'next/navigation'
 
 const defaultLayout = 'PostLayout'
 const layouts = {
@@ -20,11 +21,10 @@ const layouts = {
   PostBanner,
 }
 
-export async function generateMetadata({
-  params,
-}: {
-  params: { slug: string[] }
+export async function generateMetadata(props: {
+  params: Promise<{ slug: string[] }>
 }): Promise<Metadata | undefined> {
+  const params = await props.params
   const slug = decodeURI(params.slug.join('/'))
   const post = allBlogs.find((p) => p.slug === slug)
   const authorList = post?.authors || ['default']
@@ -56,7 +56,7 @@ export async function generateMetadata({
       title: post.title,
       description: post.summary,
       siteName: siteMetadata.title,
-      locale: 'bg_BG',
+      locale: 'en_US',
       type: 'article',
       publishedTime: publishedAt,
       modifiedTime: modifiedAt,
@@ -74,25 +74,17 @@ export async function generateMetadata({
 }
 
 export const generateStaticParams = async () => {
-  return allBlogs.map((p) => ({ slug: p.slug.split('/') }))
+  return allBlogs.map((p) => ({ slug: p.slug.split('/').map((name) => decodeURI(name)) }))
 }
 
-export default async function Page({ params }: { params: { slug: string[] } }) {
+export default async function Page(props: { params: Promise<{ slug: string[] }> }) {
+  const params = await props.params
   const slug = decodeURI(params.slug.join('/'))
   // Filter out drafts in production
   const sortedCoreContents = allCoreContent(sortPosts(allBlogs))
   const postIndex = sortedCoreContents.findIndex((p) => p.slug === slug)
   if (postIndex === -1) {
-    return (
-      <div className="mt-24 text-center">
-        <PageTitle>
-          В процес на разработка{' '}
-          <span role="img" aria-label="roadwork sign">
-            🚧
-          </span>
-        </PageTitle>
-      </div>
-    )
+    return notFound()
   }
 
   const prev = sortedCoreContents[postIndex + 1]

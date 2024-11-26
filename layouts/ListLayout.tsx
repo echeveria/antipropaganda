@@ -31,7 +31,7 @@ function Pagination({ totalPages, currentPage }: PaginationProps) {
       <nav className="flex justify-between">
         {!prevPage && (
           <button className="cursor-auto disabled:opacity-50" disabled={!prevPage}>
-            Предишен
+            Previous
           </button>
         )}
         {prevPage && (
@@ -39,7 +39,7 @@ function Pagination({ totalPages, currentPage }: PaginationProps) {
             href={currentPage - 1 === 1 ? `/${basePath}/` : `/${basePath}/page/${currentPage - 1}`}
             rel="prev"
           >
-            Предишен
+            Previous
           </Link>
         )}
         <span>
@@ -47,12 +47,12 @@ function Pagination({ totalPages, currentPage }: PaginationProps) {
         </span>
         {!nextPage && (
           <button className="cursor-auto disabled:opacity-50" disabled={!nextPage}>
-            Следващ
+            Next
           </button>
         )}
         {nextPage && (
           <Link href={`/${basePath}/page/${currentPage + 1}`} rel="next">
-            Следващ
+            Next
           </Link>
         )}
       </nav>
@@ -85,7 +85,7 @@ export default function ListLayout({
           </h1>
           <div className="relative max-w-lg">
             <label>
-              <span className="sr-only">Търсене в страници</span>
+              <span className="sr-only">Search articles</span>
               <input
                 aria-label="Search articles"
                 type="text"
@@ -111,14 +111,14 @@ export default function ListLayout({
           </div>
         </div>
         <ul>
-          {!filteredBlogPosts.length && 'Няма открита страница'}
+          {!filteredBlogPosts.length && 'No posts found.'}
           {displayPosts.map((post) => {
             const { path, date, title, summary, tags } = post
             return (
               <li key={path} className="py-4">
                 <article className="space-y-2 xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-0">
                   <dl>
-                    <dt className="sr-only">Дата на публикуване</dt>
+                    <dt className="sr-only">Published on</dt>
                     <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
                       <time dateTime={date}>{formatDate(date, siteMetadata.locale)}</time>
                     </dd>

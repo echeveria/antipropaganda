@@ -30,12 +30,12 @@ export default function PostMinimal({ content, next, prev, children }: LayoutPro
           <div className="space-y-1 pb-10 text-center dark:border-gray-700">
             <div className="w-full">
               <Bleed>
-                <div className="aspect-[2/1] w-full relative">
+                <div className="relative aspect-[2/1] w-full">
                   <Image src={displayImage} alt={title} fill className="object-cover" />
                 </div>
               </Bleed>
             </div>
-            <div className="pt-10 relative">
+            <div className="relative pt-10">
               <PageTitle>{title}</PageTitle>
             </div>
           </div>
@@ -52,7 +52,7 @@ export default function PostMinimal({ content, next, prev, children }: LayoutPro
                   <Link
                     href={`/${prev.path}`}
                     className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
-                    aria-label={`Предишен пост: ${prev.title}`}
+                    aria-label={`Previous post: ${prev.title}`}
                   >
                     &larr; {prev.title}
                   </Link>
@@ -63,7 +63,7 @@ export default function PostMinimal({ content, next, prev, children }: LayoutPro
                   <Link
                     href={`/${next.path}`}
                     className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
-                    aria-label={`Следващ пост: ${next.title}`}
+                    aria-label={`Next post: ${next.title}`}
                   >
                     {next.title} &rarr;
                   </Link>
