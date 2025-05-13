@@ -26,7 +26,7 @@ interface LayoutProps {
   authorDetails: CoreContent<Authors>[]
   next?: { path: string; title: string }
   prev?: { path: string; title: string }
-  last25?: { path: string; title: string }[]
+  last35?: { path: string; title: string }[]
   children: ReactNode
 }
 
@@ -36,7 +36,7 @@ export default function PostLayout({
   next,
   prev,
   children,
-  last25,
+  last35,
 }: LayoutProps) {
   const { filePath, path, slug, date, title, tags } = content
   const basePath = path.split('/')[0]
@@ -159,12 +159,12 @@ export default function PostLayout({
                 )}*/}
 
                 <div className="flex justify-between py-4 xl:block xl:space-y-8 xl:py-8">
-                  {last25?.length && (
+                  {last35?.length && (
                     <div>
                       <h2 className="mb-2 text-xs tracking-wide text-gray-500 uppercase dark:text-gray-400">
                         Още статии
                       </h2>
-                      {last25.map((l) => (
+                      {last35.map((l) => (
                         <div
                           key={l.path}
                           className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400 mb-2"
