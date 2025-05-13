@@ -1,28 +1,28 @@
 /** @type {import("pliny/config").PlinyConfig } */
 const siteMetadata = {
-  title: 'Next.js Starter Blog',
-  author: 'Tails Azimuth',
-  headerTitle: 'TailwindBlog',
-  description: 'A blog created with Next.js and Tailwind.css',
-  language: 'en-us',
+  title: 'Антипропаганда',
+  author: 'Kihano',
+  headerTitle: 'Антипропаганда',
+  description: 'Ако винаги следваш, никога няма да водиш!',
+  language: 'bg-bg',
   theme: 'system', // system, dark or light
-  siteUrl: 'https://tailwind-nextjs-starter-blog.vercel.app',
-  siteRepo: 'https://github.com/timlrx/tailwind-nextjs-starter-blog',
+  siteUrl: 'https://antipropaganda.eu',
+  siteRepo: 'https://github.com/echeveria/antipropaganda',
   siteLogo: `${process.env.BASE_PATH || ''}/static/images/logo.png`,
   socialBanner: `${process.env.BASE_PATH || ''}/static/images/twitter-card.png`,
-  mastodon: 'https://mastodon.social/@mastodonuser',
-  email: 'address@yoursite.com',
+  // mastodon: '',
+  email: 'kihano2@mail.bg',
   github: 'https://github.com',
-  x: 'https://twitter.com/x',
+  // x: 'https://twitter.com/x',
   // twitter: 'https://twitter.com/Twitter',
-  facebook: 'https://facebook.com',
-  youtube: 'https://youtube.com',
-  linkedin: 'https://www.linkedin.com',
+  /*  facebook: 'https://facebook.com',*/
+  youtube: 'https://www.youtube.com/@antipropagandaEU',
+  /*  linkedin: 'https://www.linkedin.com',
   threads: 'https://www.threads.net',
   instagram: 'https://www.instagram.com',
   medium: 'https://medium.com',
-  bluesky: 'https://bsky.app/',
-  locale: 'en-US',
+  bluesky: 'https://bsky.app/',*/
+  locale: 'bg-BG',
   // set to true if you want a navbar fixed to the top
   stickyNav: false,
   analytics: {
