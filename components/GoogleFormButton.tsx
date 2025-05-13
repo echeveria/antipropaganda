@@ -4,11 +4,9 @@ const GoogleFormButton = ({ formUrl }) => {
       href={formUrl}
       target="_blank"
       rel="noopener noreferrer"
-      className="mt-2 flex w-full rounded-md shadow-sm sm:ml-3 sm:mt-0"
+      className="hover:text-primary-500 dark:hover:text-primary-400 fixed top-7 right-4 z-80 h-16 w-16 p-4 text-gray-900 dark:text-gray-100"
     >
-      <button className="w-auto rounded-md bg-primary-500 px-8 py-2 font-medium text-white hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 dark:ring-offset-black dark:hover:bg-primary-400 sm:py-0">
-        Попълни формуляра за поръчка
-      </button>
+      <button>Попълни формуляра за поръчка</button>
     </a>
   )
 }
