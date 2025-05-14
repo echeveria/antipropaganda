@@ -9,7 +9,7 @@ const siteMetadata = {
   siteUrl: 'https://antipropaganda.eu',
   siteRepo: 'https://github.com/echeveria/antipropaganda',
   siteLogo: `${process.env.BASE_PATH || ''}/static/images/logo.png`,
-  socialBanner: `${process.env.BASE_PATH || ''}/static/images/twitter-card.png`,
+  socialBanner: `${process.env.BASE_PATH || ''}/static/images/logo.png`,
   // mastodon: '',
   email: 'kihano2@mail.bg',
   github: 'https://github.com',
