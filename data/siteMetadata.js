@@ -9,7 +9,7 @@ const siteMetadata = {
   siteUrl: 'https://antipropaganda.eu',
   siteRepo: 'https://github.com/echeveria/antipropaganda',
   siteLogo: `${process.env.BASE_PATH || ''}/static/images/logo.png`,
-  socialBanner: `${process.env.BASE_PATH || ''}/static/images/logo.png`,
+  socialBanner: `${process.env.BASE_PATH || ''}/static/images/twitter-card.png`,
   // mastodon: '',
   email: 'kihano2@mail.bg',
   github: 'https://github.com',
@@ -81,7 +81,7 @@ const siteMetadata = {
       // example: https://giscus.app/themes/custom_example.css
       themeURL: '',
       // This corresponds to the `data-lang="en"` in giscus's configurations
-      lang: 'en',
+      lang: 'bg',
     },
   },
   search: {
