@@ -1,6 +1,7 @@
 import Link from './Link'
 import siteMetadata from '@/data/siteMetadata'
 import SocialIcon from '@/components/social-icons'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 
 export default function Footer() {
   return (
@@ -32,6 +33,7 @@ export default function Footer() {
           </Link>
         </div>
       </div>
+      <SpeedInsights />
     </footer>
   )
 }
