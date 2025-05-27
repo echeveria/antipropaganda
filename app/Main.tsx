@@ -6,8 +6,7 @@ import { formatDate } from 'pliny/utils/formatDate'
 const MAX_DISPLAY = 5
 
 export default function Home({ posts }) {
-  const last35 = posts.map((p) => p).slice(0, 34)
-  console.log(posts)
+  const last35 = posts.filter((p) => p.pinnedMenu).slice(0, 34)
   return (
     <>
       <div className="relative divide-y divide-gray-200 dark:divide-gray-700">
