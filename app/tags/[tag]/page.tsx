@@ -47,7 +47,7 @@ export default async function TagPage(props: { params: Promise<{ tag: string }> 
     currentPage: 1,
     totalPages: totalPages,
   }
-  console.log([initialDisplayPosts, filteredPosts])
+
   return (
     <ListLayout
       posts={filteredPosts}
